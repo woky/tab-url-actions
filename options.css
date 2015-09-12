@@ -1,0 +1,40 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	flex-flow: column;
+}
+
+body > * {
+}
+
+.heading > * {
+	display: inline-block;
+}
+
+.heading > * + * {
+	margin-left: 10px;
+}
+
+textarea {
+	overflow: hidden;
+}
+
+#messages {
+	display: flex;
+	flex-flow: column;
+}
+
+#messages > .good {
+	color: darkgreen;
+}
+
+#messages > .bad {
+	color: darkred;
+}
+
+code {
+	font-weight: bold;
+}

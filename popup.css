@@ -1,0 +1,27 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	flex-flow: column;
+}
+
+#search {
+	margin: 0 4px 8px 4px;
+}
+
+#items {
+	display: flex;
+	flex-flow: column;
+}
+
+#items > * {
+	padding: 4px;
+	cursor: pointer;
+	white-space: nowrap;
+}
+
+#items > *[data-matched=false] {
+	display: none;
+}

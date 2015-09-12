@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<script src="common.js"></script>
+<script src="background.js"></script>
+</head>
+<body>
+<div id="defaultItemsText">
+// This line is a comment. Comments and blank lines are ignored.
+
+// Here you define items. Each item consists of a name and an URL template. The
+// items will appear by their name in the extension popup in the order in which
+// you list them here. Clicking an item will open an URL constructed from the
+// corresponding URL template and the current tab URL in the current or new tab.
+
+// The item consists of following two consecutive lines:
+//
+// NAME
+// FLAG URL_TEMPLATE
+//
+// The NAME is any unique name you like. Uniqueness is not enforced though.
+//
+// The FLAG is optional and if specified, it must be either 'c' or 'n' (without
+// qutoes), corresponding to opening the constructed URL in current or new tab
+// respectively. If not specified, 'n' is assumed.
+//
+// URL_TEMPLATE is an URL string without spaces in which all occurances of
+// following strings are replaced by the respective part of the current tab URL:
+//
+//  %u      Full URL
+//
+//  %h      Host part of the URL
+//          If the current tab URL is 'https://example.com/foo/bar', the
+//          replacement will be 'example.com'.
+//
+//  %o      Origin part of the URL
+//          If the current tab URL is 'https://example.com/foo/bar', the
+//          replacement will be 'https://example.com'.
+//
+// Poke me if you need any of them not replaced or other parts of URL.
+
+// Some useful items are below. You can now delete all previous text and add
+// new items. This text is saved in "Default configuration" below.
+
+Wayback Machine (Internet Archive)
+c https://web.archive.org/web/*/%u
+
+Google Cache
+c https://webcache.googleusercontent.com/search?q=cache:%u
+
+MXToolBox WHOIS
+n https://mxtoolbox.com/SuperTool.aspx?action=whois:%h
+
+isup.me
+c http://www.isup.me/%h
+</div>
+</body>
+</html>
