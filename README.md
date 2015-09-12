@@ -5,7 +5,8 @@ Tab URL Actions
 
 This extension lets you quickly navigate to a new URL using the current tab URL
 as a parameter. It requires no special permissions so install it and see the
-options page for more information.
+options page for more information. Yes, similar functionality could be achieved
+through *search engines*.
 
 Installation
 ------------
