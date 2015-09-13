@@ -45,6 +45,9 @@ function init(items)
 				case "Escape":
 					searchField.focus();
 					break;
+				case "Backspace":
+					searchField.focus();
+					return;
 				default:
 					return;
 			}
