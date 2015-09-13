@@ -75,7 +75,7 @@ function init(items)
 	searchField.addEventListener("input", ev => matchItems(ev.target.value));
 
 	searchField.addEventListener("keydown", ev => {
-		if (ev.code === "Enter") {
+		if (ev.code === "Enter" || ev.code === "ArrowDown") {
 			if (firstMatched != null)
 				firstMatched.focus();
 			ev.preventDefault();
