@@ -9,26 +9,38 @@ function init(items)
 	let itemList = document.getElementById("items");
 	let searchField = document.getElementById("search");
 
-	items.forEach(i => {
+	items.forEach((itm, idx) => {
 		let el = document.createElement("div");
 		el.setAttribute("tabindex", "2");
-		el.textContent = i.name;
-		el.dataset.name = i.name;
+		el.textContent = itm.name;
+		el.dataset.name = itm.name;
 		el.addEventListener("keydown", ev => {
 			switch (ev.code) {
 				case "ArrowDown":
 				case "KeyJ":
-					(ev.target.nextElementSibling ||
-					 itemList.firstElementChild).focus();
+					for (let i = 1; i < items.length; i++) {
+						let j = (idx + i) % items.length;
+						let next = itemList.children.item(j);
+						if (next.dataset.matched === "true") {
+							next.focus();
+							break;
+						}
+					}
 					break;
 				case "ArrowUp":
 				case "KeyK":
-					(ev.target.previousElementSibling ||
-					 itemList.lastElementChild).focus();
+					for (let i = 1; i < items.length; i++) {
+						let j = (idx - i + items.length) % items.length;
+						let prev = itemList.children.item(j);
+						if (prev.dataset.matched === "true") {
+							prev.focus();
+							break;
+						}
+					}
 					break;
 				case "Enter":
-					let where = ev.getModifierState("Shift") ? "b" : i.where;
-					performAction(i.url, where);
+					let where = ev.getModifierState("Shift") ? "b" : itm.where;
+					performAction(itm.url, where);
 					break;
 				case "Escape":
 					searchField.focus();
@@ -39,8 +51,8 @@ function init(items)
 			ev.preventDefault();
 		});
 		el.addEventListener("click", ev => {
-			let where = ev.button == 1 ? "b" : i.where;
-			performAction(i.url, where);
+			let where = ev.button == 1 ? "b" : itm.where;
+			performAction(itm.url, where);
 		});
 		itemList.appendChild(el);
 	});
