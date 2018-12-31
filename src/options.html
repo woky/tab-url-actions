@@ -1,0 +1,45 @@
+<html>
+<head>
+<meta charset=utf-8>
+<title>Tab URL Actions - Options</title>
+<link rel=stylesheet href=options.css>
+<script type=module src=options.js></script>
+</head>
+<body>
+<h1>Tab URL Actions</h1>
+<div>
+  <p>This extension lets you quickly navigate to a new URL using the current tab
+    URL as a parameter. See configuration below to learn how it works and how to
+    add new items.</p>
+  <p>Keyboard navigation in action popup:
+    <ul>
+      <li><code>Enter</code> in the filter field jumps to the first match.</li>
+      <li><code>Enter</code> (or primary mouse button) on a match opens the URL in
+        current or new foreground tab depending on the item configuration.</li>
+      <li><code>Shift-Enter</code> (or middle mouse button) on a match opens the
+        URL in new background tab regardless of the item configuration.</li>
+      <li><code>Down</code> (or <code>j</code>) cycles through matches
+        forward.</li>
+      <li><code>Up</code> (or <code>k</code>) cycles through matches
+        backward.</li>
+      <li><code>Escape</code> on a match jumps back to the filter field.</li>
+    </ul>
+  </p>
+  <p>If you are in Chrome, you can set keyboard shortcut to open the action popup
+    in <code>chrome://extensions</code>. See
+    <a 'href=https://bugzilla.mozilla.org/show_bug.cgi?id=1303384'>
+      https://bugzilla.mozilla.org/show_bug.cgi?id=1303384</a> for status of
+    this feature in Firefox.
+  <p>If you are in Firefox and you want tabs opened from this extension to be
+    able to close itself (e.g. Pinboard page to add bookmark), set
+    <code>dom.allow_scripts_to_close_windows</code> to <code>true</code> in
+  <code>about:config</code></p>
+</div>
+<div class=heading>
+  <h3>Configuration</h3>
+  <button id=save>Save</button>
+</div>
+<div id=messages></div>
+<textarea id=itemsText spellcheck=false></textarea>
+</body>
+</html>

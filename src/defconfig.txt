@@ -1,11 +1,3 @@
-<!doctype html>
-<html>
-<head>
-<script src="common.js"></script>
-<script src="background.js"></script>
-</head>
-<body>
-<div id="defaultItemsText">
 // This line is a comment. Comments and blank lines are ignored.
 
 // Here you define items. Each item consists of a name and an URL template. The
@@ -25,25 +17,34 @@
 // respectively. If not specified, 'n' is assumed.
 //
 // URL_TEMPLATE is an URL string without spaces in which all occurances of
-// following strings are replaced by the respective part of the current tab URL:
+// following strings are replaced by the respective part of the current tab:
 //
-//  %u      Full URL
+//  %u      Tab URL
 //
-//  %h      Host part of the URL
+//  %h      Host part of the tab URL
 //          If the current tab URL is 'https://example.com/foo/bar', the
 //          replacement will be 'example.com'.
 //
-//  %o      Origin part of the URL
+//  %o      Origin part of the tab URL
 //          If the current tab URL is 'https://example.com/foo/bar', the
 //          replacement will be 'https://example.com'.
 //
+//  %t      Tab title
+//          What you see in tab/window title bar. Most of time it's content of
+//          HTML <title> element.
+//
 // Poke me if you need any of them not replaced or other parts of URL.
 
-// Some useful items are below. You can now delete all previous text and add
-// new items. This text is saved in "Default configuration" below.
+// Default items are below.
+
+Pinboard
+n https://pinboard.in/add?showtags=yes&url=%u&title=%t
 
 Wayback Machine (Internet Archive)
 c https://web.archive.org/web/%u
+
+archive.is
+c https://archive.fo/%u
 
 Google Cache
 c https://webcache.googleusercontent.com/search?q=cache:%u
@@ -51,8 +52,11 @@ c https://webcache.googleusercontent.com/search?q=cache:%u
 MXToolBox WHOIS
 n https://mxtoolbox.com/SuperTool.aspx?action=whois:%h
 
+ICANN WHOIS
+n https://whois.icann.org/en/lookup?name=%h
+
+RIPE WHOIS
+https://apps.db.ripe.net/search/query.html?searchtext=%h
+
 isup.me
 c http://www.isup.me/%h
-</div>
-</body>
-</html>
