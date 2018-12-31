@@ -5,10 +5,11 @@
 body {
 	display: flex;
 	flex-flow: column;
+	padding: 4px;
 }
 
 #search {
-	margin: 0 4px 8px 4px;
+	margin-bottom: 8px;
 }
 
 #items {
@@ -17,9 +18,9 @@ body {
 }
 
 #items > * {
-	padding: 4px;
 	cursor: pointer;
 	white-space: nowrap;
+	margin-bottom: 4px;
 }
 
 #items > *[data-matched=false] {

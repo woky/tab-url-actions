@@ -100,6 +100,11 @@ function performAction(urlTemplate, where)
 		currentWindow: true
 	}
 	chrome.tabs.query(queryInfo, tabs => {
+		if (!tabs.length) {
+			console.warn('No active tabs?')
+			return
+		}
+
 		let url = new URL(tabs[0].url)
 		let newUrl = urlTemplate
 			.replace('%u', url)
@@ -107,27 +112,31 @@ function performAction(urlTemplate, where)
 			.replace('%o', url.origin)
 			.replace('%t', tabs[0].title)
 
-		switch (where) {
-			case 'c':
-				chrome.tabs.update({url: newUrl})
-				window.close()
-				break
-			case 'n':
-				chrome.tabs.create({
-					url: newUrl,
-					index: tabs[0].index + 1,
-					openerTabId: tabs[0].id
-				})
-				window.close()
-				break
-			case 'b':
-				chrome.tabs.create({
-					url: newUrl,
-					index: tabs[0].index + 1,
-					openerTabId: tabs[0].id,
-					active: false
-				})
-				break
+		switch (where.toLowerCase()) {
+		case 'c':
+			chrome.tabs.update({url: newUrl})
+			break
+		case 'n':
+			chrome.tabs.create({
+				url: newUrl,
+				index: tabs[0].index + 1,
+				openerTabId: tabs[0].id
+			})
+			break
+		case 'b':
+			chrome.tabs.create({
+				url: newUrl,
+				index: tabs[0].index + 1,
+				openerTabId: tabs[0].id,
+				active: false
+			})
+			break
+		default:
+			console.warn(`Unknown target '${where}'`)
+			return
 		}
+	
+		if (where == where.toLowerCase())
+			window.close()
 	})
 }
