@@ -105,7 +105,7 @@ function performAction(urlTemplate, where)
 			.replace('%u', url)
 			.replace('%h', url.hostname)
 			.replace('%o', url.origin)
-			.replace('%t', tab.title)
+			.replace('%t', tabs[0].title)
 
 		switch (where) {
 			case 'c':

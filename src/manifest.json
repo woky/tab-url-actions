@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "Tab URL Actions",
 	"description": "Quickly navigate to a new URL based on active URL",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"applications": {
 		"gecko": {
 			"id": "tab-url-actions@webext.woky.biz"
@@ -12,6 +12,13 @@
 		"16": "icon16.png",
 		"48": "icon48.png",
 		"128": "icon128.png"
+	},
+	"commands": {
+		"_execute_browser_action": {
+			"suggested_key": {
+				"default": "Alt+R"
+			}
+		}
 	},
 	"background": {
 		"page": "background.html"

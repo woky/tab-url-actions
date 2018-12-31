@@ -1,11 +1,9 @@
 'use strict';
-import {setDefaultItems} from './common.js'
-
-let DEBUG = true
+import {setItems, getDefaultItemsText} from './common.js'
 
 chrome.runtime.onInstalled.addListener(
 	async details => {
-		if (DEBUG || details.reason == 'install')
+		if (details.reason == 'install')
 			await setItems(await getDefaultItemsText())
 	}
 )
