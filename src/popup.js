@@ -39,7 +39,7 @@ function init(items)
 					}
 					break
 				case 'Enter':
-					let where = ev.getModifierState('Shift') ? 'b' : itm.where
+					let where = ev.getModifierState('Shift') ? 'B' : itm.where
 					performAction(itm.url, where)
 					break
 				case 'Escape':

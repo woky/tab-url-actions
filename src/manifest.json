@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "Tab URL Actions",
 	"description": "Quickly navigate to a new URL based on active tab",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"applications": {
 		"gecko": {
 			"id": "tab-url-actions@webext.woky.biz"
