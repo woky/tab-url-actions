@@ -107,10 +107,10 @@ function performAction(urlTemplate, where)
 
 		let url = new URL(tabs[0].url)
 		let newUrl = urlTemplate
-			.replace('%u', url)
+			.replace('%u', encodeURIComponent(url))
 			.replace('%h', url.hostname)
 			.replace('%o', url.origin)
-			.replace('%t', tabs[0].title)
+			.replace('%t', encodeURIComponent(tabs[0].title))
 
 		switch (where.toLowerCase()) {
 		case 'c':
