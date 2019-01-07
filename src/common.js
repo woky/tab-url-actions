@@ -53,7 +53,7 @@ export async function setItems(itemsText, items=null)
 {
 	if (!items) {
 		let errors
-		[errors, items] = parseItemsText(itemsText)
+		[items, errors] = parseItemsText(itemsText)
 		errors.forEach(console.warn)
 	}
 	return chrome.storage.sync.set({ items: items, itemsText: itemsText })

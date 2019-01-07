@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 import {setItems, getDefaultItemsText} from './common.js'
 
 chrome.runtime.onInstalled.addListener(
