@@ -1,10 +1,17 @@
 'use strict'
 
 document.addEventListener('DOMContentLoaded',
-	() => chrome.storage.sync.get('items', config => init(config.items))
+	() => {
+		document.getElementById('options').addEventListener('click', ev => {
+			ev.preventDefault()
+			chrome.runtime.openOptionsPage()
+			close()
+		})
+		chrome.storage.sync.get('items', config => initItems(config.items))
+	}
 )
 
-function init(items)
+function initItems(items)
 {
 	let itemList = document.getElementById('items')
 	let searchField = document.getElementById('search')
